@@ -1,0 +1,318 @@
+/* RESET BÁSICO */
+body {
+  margin: 0; /* Elimina el margen exterior del navegador */
+  padding: 0.5rem; /* Espaciado interno general */
+  box-sizing: border-box; /* Incluye padding y border en los tamaños */
+  font-family: "Raleway", sans-serif; /* Fuente base legible y moderna */
+}
+
+/* CABECERA Y MENÚ SUPERIOR */
+.top-header {
+  position: fixed; /* Mantiene el menú fijo en la parte superior */
+  background-color: white; /* Fondo blanco para visibilidad */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 100; /* Se asegura de estar por encima de otros elementos */
+  height: 5rem; /* Altura fija del menú (80px aprox.) */
+  display: flex; /* Activa Flexbox para alinear los elementos internos */
+  align-items: center; /* Centrado vertical */
+  justify-content: space-between; /* Separación entre logo y menú */
+  padding: 0 -0.5rem; /* Espacio horizontal interno del menú */
+}
+
+/* LOGO */
+.logo img {
+  height: 6rem; /* Altura del logo */
+  width: auto; /* Mantiene proporción automática */
+}
+
+/* BOTÓN HAMBURGUESA (ESCONDE EN DESKTOP) */
+.menu-toggle {
+  display: none; /* Oculto por defecto */
+  font-size: 2rem; /* Tamaño del ícono hamburguesa */
+  background: none; /* Sin fondo */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Manito al pasar el mouse */
+  margin-right: 1rem; /* Espacio entre el borde derecho */
+}
+
+/* MENÚ PRINCIPAL HORIZONTAL */
+.menu-horizontal {
+  list-style: none; /* Quita los bullets */
+  display: flex; /* Muestra en fila horizontal */
+  /*justify-content: space-around; /* Espaciado uniforme entre elementos */
+  /*justify-content: flex-start;*/
+  margin: 0;
+  padding: 0;
+}
+
+/* ENLACES DEL MENÚ */
+.menu-horizontal li a {
+  display: block; /* Permite aplicar padding y área clickeable completa */
+  padding: 1rem 1.25rem; /* Espaciado vertical y horizontal */
+  color: black; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+}
+
+.menu-horizontal li a:hover {
+  color: brown; /* Cambio de color al pasar el mouse */
+}
+
+/* SUBMENÚ VERTICAL OCULTO POR DEFECTO */
+.menu-vertical {
+  display: none; /* Oculto por defecto */
+  position: absolute; /* Posición relativa al padre */
+  background-color: rgb(194, 190, 190); /* Fondo visible */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 12rem; /* Ancho del submenú */
+}
+
+.menu-horizontal li:hover .menu-vertical {
+  display: block; /* Se muestra al pasar el mouse */
+}
+
+.menu-vertical li a {
+  display: block;
+  color: black;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.menu-vertical li a:hover {
+  background-color: #eee; /* Resalta al pasar el mouse */
+}
+
+/* SECCIÓN HISTORIA */
+.historia {
+  min-height: 90vh;
+  padding-top: 6rem; /* Espacio superior para evitar que el menú tape el contenido */
+  padding-bottom: 3rem; /* Espaciado inferior */
+  padding-left: 2rem; /* Espaciado lateral izquierdo */
+  padding-right: 2rem; /* Espaciado lateral derecho */
+  background-color: #f1f1f1; /* Fondo suave */
+  color: #333; /* Texto gris oscuro legible */
+}
+
+.historia h2 {
+  font-size: 2rem; /* Tamaño de título */
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+/* CONTENEDOR DE IMAGEN Y TEXTO */
+.historia-contenido {
+  display: flex; /* Flexbox para organizar en fila */
+  flex-direction: row; /* Elementos uno al lado del otro */
+  gap: 2rem; /* Espacio entre imagen y texto */
+  align-items: center; /* Alineación vertical centrada */
+  width: 100%;
+}
+
+/* IMAGEN */
+.historia-imagen {
+  flex: 1; /* Toma la mitad del espacio */
+}
+
+.historia-imagen img {
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* TEXTO */
+.historia-texto {
+  flex: 1; /* Ocupa la otra mitad del espacio */
+  font-size: 1rem; /* Tamaño base de texto */
+  line-height: 1.6; /* Altura de línea para mejor lectura */
+}
+
+.historia-texto p + p {
+  margin-top: 1rem; /* Espacio entre párrafos */
+}
+
+/* RESPONSIVE: MÓVILES */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Mostrar botón hamburguesa en móviles */
+  }
+
+  .menu-horizontal {
+    display: none; /* Ocultar menú horizontal por defecto */
+    flex-direction: column; /* Mostrarlo en vertical al activarse */
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 5rem; /* Debajo del menú fijo */
+    left: 0;
+  }
+
+  .menu-horizontal.active {
+    display: flex; /* Mostrar menú al activar la clase */
+  }
+
+  .menu-horizontal li {
+    border-bottom: 1px solid #ccc; /* Líneas separadoras */
+  }
+
+  .historia-contenido {
+    flex-direction: column; /* Apilar imagen y texto en móvil */
+    text-align: center;
+  }
+
+  .historia-imagen img {
+    width: 90%; /* Reduce tamaño para pantallas pequeñas */
+    margin: 0 auto;
+  }
+
+  .historia-texto {
+    font-size: 1.1rem;
+  }
+}
+
+/* SECCION PROPOSITO */
+.vision {
+  min-height: 90vh;
+  background-color: white;
+  padding-top: 8rem;
+}
+
+.vision h2 {
+  padding-left: 1rem;
+}
+
+.proposito {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: #ffffff;
+  color: #333;
+}
+.proposito h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+}
+.proposito-contenido {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+}
+/* TEXTO DEL PROPOSITO */
+.proposito-texto {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.proposito-texto p + p {
+  margin-top: 1rem;
+}
+/* VIDEO EMBED */
+.proposito-video {
+  flex: 1;
+}
+.proposito-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/*Sedes*/
+.sedes {
+  min-height: 90vh;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  background-color: #f1f1f1;
+}
+
+/* SECCIÓN SERVICIOS */
+.servicios {
+  background-color: #f1f1f1;
+  padding: 8rem 2rem 6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicios-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-servicios {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10rem;
+  font-family: "Righteous", cursive;
+  line-height: 1.2;
+}
+
+.servicios-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centra horizontalmente */
+  align-items: flex-start; /* alinea arriba */
+  gap: 4rem 3rem; /* espacio entre filas y columnas */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.servicio-box {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-servicio {
+  background-color: black;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.icono-servicio {
+  font-size: 2.5rem;
+  background-color: #FFD600;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.servicio-box h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.servicio-box p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #333;
+}
+
